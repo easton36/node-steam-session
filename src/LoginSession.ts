@@ -3,7 +3,7 @@ import {HttpClient, HttpResponse} from '@doctormckay/stdlib/http';
 import {randomBytes} from 'crypto';
 import createDebug from 'debug';
 import HTTPS from 'https';
-import {SocksProxyAgent} from 'socks-proxy-agent';
+// import {SocksProxyAgent} from 'socks-proxy-agent';
 import SteamID from 'steamid';
 import {TypedEmitter} from 'tiny-typed-emitter';
 
@@ -111,9 +111,9 @@ export default class LoginSession extends TypedEmitter<LoginSessionEvents> {
 
 		if (options.httpProxy) {
 			agent = StdLib.HTTP.getProxyAgent(true, options.httpProxy) as HTTPS.Agent;
-		} else if (options.socksProxy) {
+		} /* else if (options.socksProxy) {
 			agent = new SocksProxyAgent(options.socksProxy);
-		}
+		} */
 
 		this._webClient = new HttpClient({httpsAgent: agent});
 

@@ -1,6 +1,6 @@
 import {createHmac} from 'crypto';
 import HTTPS from 'https';
-import {SocksProxyAgent} from 'socks-proxy-agent';
+// import {SocksProxyAgent} from 'socks-proxy-agent';
 import StdLib from '@doctormckay/stdlib';
 import {HttpClient} from '@doctormckay/stdlib/http';
 import SteamID from 'steamid';
@@ -27,9 +27,9 @@ export default class LoginApprover {
 
 		if (options.httpProxy) {
 			agent = StdLib.HTTP.getProxyAgent(true, options.httpProxy) as HTTPS.Agent;
-		} else if (options.socksProxy) {
+		} /* else if (options.socksProxy) {
 			agent = new SocksProxyAgent(options.socksProxy);
-		}
+		} */
 
 		this._webClient = new HttpClient({httpsAgent: agent});
 
